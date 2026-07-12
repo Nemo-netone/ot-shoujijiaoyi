@@ -1,22 +1,24 @@
 # 新蜂手机商城
 
-![Demo Online](https://img.shields.io/badge/Demo-Online-brightgreen) ![Frontend](https://img.shields.io/badge/Frontend-Cloudflare%20Pages-f38020) ![License](https://img.shields.io/badge/License-Noncommercial-blue)
+![Demo Online](https://img.shields.io/badge/Demo-Online-brightgreen) ![Frontend](https://img.shields.io/badge/Frontend-Cloudflare%20Pages-f38020) ![Backend](https://img.shields.io/badge/Backend-Cloudflare%20Workers-f38020) ![Database](https://img.shields.io/badge/Database-Supabase-3ecf8e) ![License](https://img.shields.io/badge/License-Noncommercial-blue)
 
 ## 在线演示
 
 - Demo: https://ot-shoujijiaoyi.pages.dev
 - GitHub: https://github.com/Nemo-netone/ot-shoujijiaoyi
-- 演示账号: $account
+- 管理员：`admin` / `123456`
+- 商城用户：`17759573851` / `123456`
+- 店铺运营：`newbee-admin1` / `123456`
 
 ## 原前端恢复
 
-本仓库保留原始项目源码，并在 original-site/ 中提供可直接部署的恢复版前端。恢复方向为：shopping-mall 原 NewBee mall 与 AdminLTE 管理页。统一 site/ 仅保留为历史兜底，不再作为线上主页面。
+本仓库保留原始项目源码，并在 `original-site/` 中提供可直接部署的恢复版前端。恢复版延续原 NewBee Mall 商城与管理后台视觉资源，`site/` 仅作为历史兜底，不作为线上主页面。
 
-恢复版已接入同源 Pages API，支持演示登录、核心业务列表，以及记录新增、编辑和删除。后端继续使用项目独立 Supabase schema，不与其他作品集项目混用。
+恢复版接入同源 Pages Worker API，商品管理使用真实 `product` 数据模块，支持演示登录、非空商品列表，以及商品新增、编辑和删除。数据使用项目独立 Supabase schema。
 
 ## 验证记录
 
-2026-07-12 已完成：稳定域名 HTTP 200、/health、管理员登录、列表读取、临时记录新增/更新/删除并清理、桌面与移动端 Playwright 验证、浏览器控制台错误检查。
+2026-07-12 已完成稳定域名、健康检查、三类演示账号登录、`product` 商品列表、临时商品新增/更新/删除与清理，以及桌面和移动端 Playwright 验证。
 
 ![首页](docs/screenshots/home.png)
 ![管理页](docs/screenshots/admin.png)
@@ -24,9 +26,9 @@
 
 ## 本地预览
 
-`ash
+```bash
 npx wrangler@3 pages dev original-site
-`
+```
 
 ## 许可
 
