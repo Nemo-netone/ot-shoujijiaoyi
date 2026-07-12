@@ -1,80 +1,33 @@
-# 手机交易商城
+# 新蜂手机商城
 
-面向手机商品、分类、轮播、购物车、订单和用户管理的交易商城演示系统。
-
-![Demo Online](https://img.shields.io/badge/Demo%20Online-pages.dev-brightgreen)
-![License](https://img.shields.io/badge/License-Noncommercial-orange)
-![Frontend](https://img.shields.io/badge/Frontend-Cloudflare%20Pages-blue)
-![Backend](https://img.shields.io/badge/Backend-Cloudflare%20Workers-purple)
-![Database](https://img.shields.io/badge/Database-Supabase-3FCF8E)
+![Demo Online](https://img.shields.io/badge/Demo-Online-brightgreen) ![Frontend](https://img.shields.io/badge/Frontend-Cloudflare%20Pages-f38020) ![License](https://img.shields.io/badge/License-Noncommercial-blue)
 
 ## 在线演示
 
-| 项目 | 地址 |
-|---|---|
-| GitHub 仓库 | https://github.com/Nemo-netone/ot-shoujijiaoyi |
-| 演示地址 | https://ot-shoujijiaoyi.pages.dev |
-| 生产分支 | `main` |
-| Cloudflare Pages | `ot-shoujijiaoyi` |
-| Supabase schema | `ot_shoujijiaoyi` |
+- Demo: https://ot-shoujijiaoyi.pages.dev
+- GitHub: https://github.com/Nemo-netone/ot-shoujijiaoyi
+- 演示账号: $account
 
-## 演示账号
+## 原前端恢复
 
-| 类型 | 用户名 | 密码 | 权限 |
-|---|---|---|---|
-| 平台管理员 | `admin` | `123456` | admin |
-| 商城用户 | `17759573851` | `123456` | user |
-| 运营账号 | `newbee-admin1` | `123456` | staff |
+本仓库保留原始项目源码，并在 original-site/ 中提供可直接部署的恢复版前端。恢复方向为：shopping-mall 原 NewBee mall 与 AdminLTE 管理页。统一 site/ 仅保留为历史兜底，不再作为线上主页面。
 
-这些账号只用于公开演示。请不要在演示系统里录入真实手机号、身份证、地址、订单或支付信息。
+恢复版已接入同源 Pages API，支持演示登录、核心业务列表，以及记录新增、编辑和删除。后端继续使用项目独立 Supabase schema，不与其他作品集项目混用。
 
-## 截图
+## 验证记录
 
-| 首页 / 工作台 | 管理视图 | 移动端 |
-|---|---|---|
-| ![home](docs/screenshots/home.png) | ![admin](docs/screenshots/admin.png) | ![mobile](docs/screenshots/mobile.png) |
+2026-07-12 已完成：稳定域名 HTTP 200、/health、管理员登录、列表读取、临时记录新增/更新/删除并清理、桌面与移动端 Playwright 验证、浏览器控制台错误检查。
 
-## 功能模块
-
-- **手机商品**：商品标题、分类、价格、库存和上架状态
-- **分类管理**：手机品牌、系列、层级和排序
-- **首页轮播**：首页推荐图、跳转地址和排序
-- **购物车**：加购、数量、价格和结算准备
-- **订单管理**：订单、明细、支付和配送状态
-- **用户管理**：用户、地址、联系方式和禁用状态
-
-## 技术栈
-
-- 原始项目：NewBee Mall 风格 Spring Boot + MySQL，原始工程位于 shopping-mall。
-- 线上演示：Cloudflare Pages + Pages Functions + Supabase
-- 数据隔离：所有演示数据写入 `ot_shoujijiaoyi`，不覆盖 Supabase `public` 或其他项目 schema
-- API 形态：同域 `/api/*`，由 `site/_worker.js` 处理
+![首页](docs/screenshots/home.png)
+![管理页](docs/screenshots/admin.png)
+![移动端](docs/screenshots/mobile.png)
 
 ## 本地预览
 
-```powershell
-npx wrangler@3 pages dev site
-```
+`ash
+npx wrangler@3 pages dev original-site
+`
 
-如需连接真实 Supabase，需要在 Cloudflare Pages 或本机临时环境中配置：
+## 许可
 
-```text
-SUPABASE_URL=<supabase-url>
-SUPABASE_ANON_KEY=<supabase-anon-key>
-SUPABASE_SCHEMA=ot_shoujijiaoyi
-CORS_ALLOWED_ORIGINS=https://ot-shoujijiaoyi.pages.dev
-```
-
-## 部署说明
-
-详细部署记录见 [docs/deployment.md](docs/deployment.md)。功能树和使用场景见 [docs/features.md](docs/features.md)。演示账号范围见 [docs/accounts.md](docs/accounts.md)。
-
-## 已知限制
-
-- 这是作品集可演示版本，重点保证浏览、登录、统计、增删改查流程稳定。
-- 原始 Java/Vue/MySQL 项目源码保留在仓库中，线上不直接运行 Tomcat/Spring Boot。
-- 文件上传、真实支付、短信、地图、AI 或第三方平台能力在演示版中不接入真实服务。
-
-## 许可协议
-
-本项目使用 PolyForm Noncommercial License 1.0.0。允许非商业学习、使用和修改；商业使用需要单独授权。
+采用 PolyForm Noncommercial 1.0.0。允许非商业使用与修改；商业使用需另行获得作者许可。
